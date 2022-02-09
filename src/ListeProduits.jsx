@@ -1,8 +1,8 @@
-import "./ListeProduits.css";
+import "./ListeProduits.scss";
 import Produit from "./Produit.jsx";
 import lesProduits from "./data/produits.json";
 
-export default function articlesteProduits(){
+export default function articlesProduits(){
     // console.log("la var lesProduits : ", lesProduits);
 
     
@@ -26,7 +26,7 @@ export default function articlesteProduits(){
     //     return uneNote.toFixed();
     // });
 
-    console.log("le tableau des notes arrondies : ", notesArrondies);
+    // console.log("le tableau des notes arrondies : ", notesArrondies);
 
     return(
         <section className="produits">
@@ -35,7 +35,7 @@ export default function articlesteProduits(){
 
                 {/* retourne un tableau qui contient des composants produits avec les paramètres importés du produits.json(lesProduits) */}
                 {
-                    lesProduits.map(produit => <Produit nom={produit.nom} prix={produit.prix} pid={produit.id}/>)
+                    lesProduits.map(produit => <Produit key={produit.pid} nom={produit.nom} prix={produit.prix} pid={produit.id}/>)
                 }
 
                 {/* mettre un tableau qui contient des composants comme <Produit/>, ils sont automatiquement affichés dans le html */}

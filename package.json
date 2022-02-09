@@ -1,6 +1,6 @@
 {
-  "remarque-importante":"pour publier sur gh-pages, modifier la prochaine propriété",
-  "homepage-ghpages": "https://Mirogas.github.io/panier-achat",
+  "remarque-importante": "pour publier sur gh-pages, modifier la prochaine propriété",
+  "homepage": "https://Mirogas.github.io/panier-achat",
   "name": "panier-achats",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "sass": "^1.49.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
