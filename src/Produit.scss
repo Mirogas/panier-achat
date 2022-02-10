@@ -1,0 +1,16 @@
+.Produit{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: ivory;
+    box-shadow: 7px 7px 20px 1px grey;
+
+    .titre{
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .prix::after{
+        content: ' $';
+    }
+}

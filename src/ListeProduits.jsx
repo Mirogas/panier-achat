@@ -5,8 +5,6 @@ import lesProduits from "./data/produits.json";
 export default function articlesProduits(){
     // console.log("la var lesProduits : ", lesProduits);
 
-    
-
     // // methode #1 : prog imperative avec un boucle for********************************************
     // let composantsProduits = [];
     // // parcourir le tableau lesProduits et générer un composant produit pour chq élément
@@ -29,9 +27,9 @@ export default function articlesProduits(){
     // console.log("le tableau des notes arrondies : ", notesArrondies);
 
     return(
-        <section className="produits">
+        <section className="ListeProduits">
             <h2>Nos produits</h2>
-            <div>
+            <div class="produits">
 
                 {/* retourne un tableau qui contient des composants produits avec les paramètres importés du produits.json(lesProduits) */}
                 {
