@@ -33,7 +33,7 @@ export default function articlesProduits(props){
 
                 {/* retourne un tableau qui contient des composants produits avec les paramètres importés du produits.json(lesProduits) */}
                 {
-                    lesProduits.map(produit => <Produit key={produit.id} nom={produit.nom} prix={produit.prix} pid={produit.id} panier={props.panier} setPanier={props.setPanier}/>)
+                    lesProduits.map(produit => <Produit key={produit.id} nom={produit.nom} prix={produit.prix} pid={produit.id} etatPanier={props.etatPanier}/>)
 
                     // ancienne version sans le composant panier
                     // lesProduits.map(produit => <Produit key={produit.id} nom={produit.nom} prix={produit.prix} pid={produit.id}/>)

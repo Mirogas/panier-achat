@@ -6,15 +6,10 @@ import PiedPage from './PiedPage';
 
 function App() {
 
+  // retourne un tableau avec la var etatPanier et une fonction pour la mettre a jour dynamiquement
   const etatPanier = useState({});
 
-  // le panier est dans la 1ere position de etatPanier
-  const panier = etatPanier[0];
-
-  // fonction définie par react pour modifier le panier
-  const setPanier = etatPanier[1];
-
-  console.log("L'état panier : ", panier);
+  console.log("L'état panier : ", etatPanier[0]);
 
   // let panier ={
   //   exemple d'objet du panier
@@ -30,10 +25,12 @@ function App() {
   //   }
   // }
 
+  const [compteur, setCompteur]=useState(0);
+
   return (
     <div className="App">
-      <Entete panier={panier} />
-      <ListeProduits panier={panier} setPanier={setPanier}/>
+      <Entete panier={etatPanier[0]} />
+      <ListeProduits etatPanier={etatPanier}/>
       <PiedPage />
     </div>
   );
