@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Entete panier={panier} />
+      <Entete ali="baba" panier={panier} test="Allo Props" />
       <ListeProduits etatPanier={etatPanier} />
       <div>
         <span>Nombre de clics : {compteur} </span>
