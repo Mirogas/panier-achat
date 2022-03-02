@@ -3,7 +3,6 @@ import './App.scss';
 import Entete from './Entete';
 import ListeProduits from './ListeProduits';
 import PiedPage from './PiedPage';
-import ListeProduits from './ListeProduits';
 import Acceuil from './Accueil';
 import Histoire from './Histoire';
 

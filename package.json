@@ -1,6 +1,6 @@
 {
   "remarque-importante": "Pour publier sur GH Pages, renommer la prochaine prop 'homepage'",
-  "homepage-inactif": "https://mirogas.github.io/panier-achat/",
+  "homepage": "https://mirogas.github.io/panier-achat/",
   "name": "panier-achats",
   "version": "0.1.0",
   "private": true,
