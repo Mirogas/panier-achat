@@ -6,32 +6,30 @@ import PiedPage from './PiedPage';
 
 function App() {
 
+  // état de l'utilisateur connecté
+  const [util, setUtil] = useState(true);
+
   // retourne un tableau avec la var etatPanier et une fonction pour la mettre a jour dynamiquement
   const etatPanier = useState({});
 
   console.log("L'état panier : ", etatPanier[0]);
 
-  // let panier ={
-  //   exemple d'objet du panier
-  //   prd0003:{
-  //       nom: "pinotte",
-  //       prix: 5.76,
-  //       qte: 1
-  //   },
-  //   prd0004:{
-  //     nom: "pomme",
-  //     prix: 33.46,
-  //     qte: 22
-  //   }
-  // }
 
-  const [compteur, setCompteur]=useState(0);
+  // déclenche le processus d'authentification
+  
 
   return (
     <div className="App">
-      <Entete panier={etatPanier[0]} />
-      <ListeProduits etatPanier={etatPanier}/>
-      <PiedPage />
+      {
+        util?
+        <> {/* balise vide permise par react pcq il aime pas avoir des composants sans balise parente */}
+          <Entete panier={etatPanier[0]} />
+          <ListeProduits etatPanier={etatPanier}/>
+          <PiedPage />
+        </>
+        :
+        <button>Connexion</button>
+      }
     </div>
   );
 }

@@ -1,52 +1,31 @@
 import "./ListeProduits.scss";
 import Produit from "./Produit.jsx";
-import lesProduits from "./data/produits.json";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import {bdFirestore} from "./firebase/init.js";
 
-export default function articlesProduits(props){
-    // console.log("la var lesProduits : ", lesProduits);
 
-    // // methode #1 : prog imperative avec un boucle for********************************************
-    // let composantsProduits = [];
-    // // parcourir le tableau lesProduits et générer un composant produit pour chq élément
-    // for(let i=0; i<lesProduits.length; i++){
-    //     composantsProduits.push(<Produit nom={lesProduits[i].nom} prix={lesProduits[i].prix} pid={lesProduits[i].id}/>);
-    // }
-    // // ensuite mettre le tableau composantsProduits dans la div
+export default function ListeProduits({etatPanier}){
 
-    // méthode #2 : exemple fonction avec map()************************************************************
-    let notes = [32.3, 44.67, 87.76, 76.88];
+    const[produits, setProduits] = useState([]);
 
-    // map retourne un nouveau tableau avec chq élément (chq élem s'appelle uneNote) de l'ancien tableau (notesArrondies)
-    let notesArrondies = notes.map(uneNote => uneNote.toFixed()-0);
+    useEffect(function(){
+        // lire tous les documents de la collection MagGen-Produits
+        getDocs(collection(bdFirestore,'MagGen-produits')).then(
+            qs => setProduits(qs.docs.map(doc => ({id: doc.id, ...doc.data()})))
+        );
 
-    // est équivalent a cette fonction:
-    // let notesArrondies = notes.map(function(uneNote){
-    //     return uneNote.toFixed();
-    // });
-
-    // console.log("le tableau des notes arrondies : ", notesArrondies);
+    }, []);
 
     return(
         <section className="ListeProduits">
             <h2>Nos produits</h2>
             <div className="produits">
 
-                {/* retourne un tableau qui contient des composants produits avec les paramètres importés du produits.json(lesProduits) */}
-                {
-                    lesProduits.map(produit => <Produit key={produit.id} nom={produit.nom} prix={produit.prix} pid={produit.id} etatPanier={props.etatPanier}/>)
+                {/* retourne un tableau qui contient des composants produits avec les paramètres importés de la base de données firebase*/}
+                {produits.map(produit => <Produit key={produit.id} nom={produit.nom} prix={produit.prix} pid={produit.id} etatPanier={etatPanier}/>)}
 
-                    // ancienne version sans le composant panier
-                    // lesProduits.map(produit => <Produit key={produit.id} nom={produit.nom} prix={produit.prix} pid={produit.id}/>)
-                }
-
-                {/* mettre un tableau qui contient des composants comme <Produit/>, ils sont automatiquement affichés dans le html */}
-                {/* {composantsProduits} */}
-
-
-                {/* <Produit nom="Chandail beige" prix="16.50" pid="prd0001"/>
-                <Produit nom="Chandail bleu rayé" prix="14.99" pid="prd0002"/>
-                <Produit nom="Chandail bleu" prix="12.25" pid="prd0003"/> */}
             </div>
         </section>
-    )
-}
+    );
+};
