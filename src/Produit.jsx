@@ -1,6 +1,5 @@
 import './Produit.scss';
 import BtnAjoutPanier from './BtnAjoutPanier';
-import { requirePropFactory } from '@mui/material';
 
 export default function Produit(props){
 

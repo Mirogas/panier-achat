@@ -1,6 +1,5 @@
 import './BtnAjoutPanier.scss';
 import Badge from '@mui/material/Badge';
-import { useThemeProps } from '@mui/material';
 
 export default function BtnAjoutPanier(props){
     return(
