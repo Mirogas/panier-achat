@@ -2,8 +2,11 @@ import './Entete.scss';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import Badge from '@mui/material/Badge';
 import {NavLink} from 'react-router-dom';
+import { Avatar } from '@mui/material';
+import {authFirebase} from "./firebase/init";
+import { signOut } from '@firebase/auth';
 
-export default function Entete({panier}) {
+export default function Entete({panier, util, setUtil}) {
 
     // Obtenir les 5 info impportantes pour le sommaire panier (on passe le tableau 
     // (Array) des valeurs dans l'objet 'panier')
@@ -29,6 +32,14 @@ export default function Entete({panier}) {
                     <div><span>Sous-total : </span><span>{sousTotal}</span></div>
                     <div><span>Taxes : </span><span>{taxes}</span></div>
                     <div><span>Total : </span><span>{total}</span></div>
+                </div>
+
+                <div>
+                    <Avatar alt={util.displayName} src={util.photoURL} />   
+                    {util.displayName}
+                    <br/>
+                    {/* bouton de déconnexion, appelle la fct de déconexion de firebase et rend l'objeet d'utilisateur null*/}
+                    <button onClick={ ()=>signOut(authFirebase).then(setUtil(null)) }>Déconnexion</button>
                 </div>
 
                 <a href="#">
