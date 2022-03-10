@@ -9,6 +9,7 @@ export default function Entete({panier}) {
     // Obtenir les 5 info impportantes pour le sommaire panier (on passe le tableau 
     // (Array) des valeurs dans l'objet 'panier')
     const {articlesDifferents, articlesTotaux, sousTotal, taxes, total} = calculerInfoPanier(Object.values(panier));
+    
     return (
         <header className="Entete">
             <h1><NavLink to='/'>Magasin général</NavLink></h1>
@@ -20,6 +21,7 @@ export default function Entete({panier}) {
             </nav>
             
             <nav>
+
                 {/* Sommaire du panier */}
                 <input type="checkbox" id="cc-sommaire-panier" />
                 <div className="sommaire-panier">
@@ -30,10 +32,13 @@ export default function Entete({panier}) {
                     <div><span>Taxes</span><span>{taxes}</span></div>
                     <div><span>Total</span><span>{total}</span></div>
                 </div>
+
                 <Badge badgeContent={articlesTotaux} color="secondary">
                     <label htmlFor="cc-sommaire-panier"><ShoppingCartSharpIcon/></label>
                 </Badge>
+                
                 <a href="#">Contactez-nous</a>
+
             </nav>
         </header>
     );
